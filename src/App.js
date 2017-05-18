@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Navbar from './component/navbar/navbar';
-import ProdutoCard from './component/produtocard/produtocard';
+import ListaProduto from './component/produtocard/listaproduto';
 
 export default  class App extends React.Component {
   render(){
@@ -10,11 +10,7 @@ export default  class App extends React.Component {
       <div>
         <Navbar titulo="Marketplace" cor="orange"/>
         <div className="container">
-          <div className="row">
-            <div className="col m3">
-              <ProdutoCard/>
-            </div>
-          </div>
+          <ListaProduto/>
         </div>
       </div>
     )
