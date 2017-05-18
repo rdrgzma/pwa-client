@@ -9,7 +9,7 @@ export default  class App extends React.Component {
       <div>
         <Navbar titulo="Marketplace" cor="orange"/>
         <div className="container">
-          conteudo aqui
+          Conteúdo aqui
         </div>
       </div>
     )
