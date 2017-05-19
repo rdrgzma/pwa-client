@@ -22,11 +22,7 @@
   <body>
     <!-- Filler HTML as our app starts up -->
     <div id="root">
-    <nav class="orange">
-          <div class="container">
-             <a href="#" class="brand-logo">Marketplace</a>
-          </div>
-     </nav>
+
      <div class="container">
        <div class="valign-wrapper">
          <div class="center-align">
@@ -54,7 +50,9 @@
     <script type="text/javascript">
       $(document).ready(function(){
         Materialize.updateTextFields();
-        $(".button-collapse").sideNav();
+        $(".button-collapse").sideNav(
+
+        );
       });
     </script>
     <script>

@@ -1,15 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class NavMenu extends React.Component {
   render(){
-    let lista=this.props.menu.map((obj)=>{
-      return(
-        <li key={obj.titulo}><a href={obj.link}>{obj.titulo}</a></li>
-      );
-    });
-    return (<div>
-              {lista}
-            </div>)
+
+    return (
+      <div>
+        <li><Link to="/">Catalago</Link></li>
+          <li><Link to="/cadastroanuncio">Cadastrar Anuncio</Link></li>
+      </div>
+    )
   }
 
 }

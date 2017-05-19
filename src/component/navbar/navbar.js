@@ -1,34 +1,45 @@
 import React from 'react';
-
-import NavMenu from './navmenu';
+import AppBar from 'material-ui/AppBar';
+import Avatar from 'material-ui/Avatar';
+import {List, ListItem} from 'material-ui/List';
+import Drawer from 'material-ui/Drawer';
+import { Link} from 'react-router';
 
 export default class Navbar extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      drawerOpened: false
+    }
+  };
+
+  toggleDrawer(){
+    this.setState({
+        drawerOpened: !this.state.drawerOpened
+      });
+  };
   render(){
 
-    let menu=[
-      {titulo: "Home", link: "#home"},
-      {titulo: "Perfil", link: "#perfil"},
-      {titulo: "Produtos", link: "#produtos"},
-      {titulo: "Carrinho", link: "#Carrinho"}
-    ]
 
-    let corNav="nav-wrapper "+this.props.cor;
 
     return (
-       <nav className={this.props.cor}>
-           <div className="container">
-             <div className={corNav} >
-               <a href="#!" className="brand-logo">{this.props.titulo}</a>
-               <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
-               <ul className="right hide-on-med-and-down">
-                 <NavMenu menu={menu}/>
-               </ul>
-               <ul className="side-nav" id="mobile-demo">
-                 <NavMenu menu={menu}/>
-               </ul>
-             </div>
-           </div>
-       </nav>
+      <div>
+      <AppBar title="Marketplace"onLeftIconButtonTouchTap={()=>this.toggleDrawer()}>
+        <Drawer open={this.state.drawerOpened} docked={false} onRequestChange={()=>this.toggleDrawer()}>
+          <List>
+              <ListItem disabled={true}leftAvatar={<Avatar src="http://www.material-ui.com/images/uxceo-128.jpg" />}>
+                        Usuario
+                </ListItem>
+            <ListItem>
+              <Link to="/">Catalago</Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/cadastroanuncio">Cadastrar Anuncio</Link>
+            </ListItem>
+          </List>
+        </Drawer>
+      </AppBar>
+    </div>
      );
   }
 }
